@@ -1,0 +1,129 @@
+{
+    "Semester 1": [
+      {
+        "course": "Discrete Structures",
+        "marks": 22
+      },
+      {
+        "course": "Computer Networks",
+        "marks": 20
+      },
+      {
+        "course": "Operating Systems with Linux",
+        "marks": 23
+      },
+      {
+        "course": "Database Management Systems",
+        "marks": 24
+      },
+      {
+        "course": "Object Oriented Programming and JAVA",
+        "marks": 21
+      },
+      {
+        "course": "Computer Networks Lab",
+        "marks": 37
+      },
+      {
+        "course": "Operating Systems with Linux Lab",
+        "marks": 34
+      },
+      {
+        "course": "Database Management Systems Lab",
+        "marks": 38
+      },
+      {
+        "course": "Object Oriented Programming and JAVA Lab",
+        "marks": 38
+      },
+      {
+        "course": "MINOR PROJECT - I",
+        "marks": 39
+      }
+    ],
+    "Semester 2": [
+      {
+        "course": "Data and File Structures",
+        "marks": 17
+      },
+      {
+        "course": "Object Oriented Software Engineering",
+        "marks": 22
+      },
+      {
+        "course": "Python Programming",
+        "marks": 22
+      },
+      {
+        "course": "Full Stack Development",
+        "marks": 22
+      },
+      {
+        "course": "Digital Marketing",
+        "marks": 24
+      },
+      {
+        "course": "Data and File Structures Lab",
+        "marks": 37
+      },
+      {
+        "course": "Object Oriented Software Engineering Lab",
+        "marks": 37
+      },
+      {
+        "course": "Python Programming Lab",
+        "marks": 38
+      },
+      {
+        "course": "Lab. based on Core Elective - I",
+        "marks": 37
+      },
+      {
+        "course": "MINOR PROJECT - II",
+        "marks": 39
+      }
+    ],
+    "Semester 3": [
+      {
+        "course": "Design and Analysis of Algorithms",
+        "marks": 22
+      },
+      {
+        "course": "Artificial Intelligence and Machine Learning",
+        "marks": 21
+      },
+      {
+        "course": "Cloud Computing",
+        "marks": 23
+      },
+      {
+        "course": "Multimedia Technologies",
+        "marks": 23
+      },
+      {
+        "course": "Cyber Security and Cyber Laws",
+        "marks": 22
+      },
+      {
+        "course": "Design and Analysis of Algorithms Lab",
+        "marks": 38
+      },
+      {
+        "course": "Artificial Intelligence and Machine Learning Lab",
+        "marks": 38
+      },
+      {
+        "course": "Lab. based on Core Elective - II",
+        "marks": 37
+      },
+      {
+        "course": "Lab. based on Core Elective - III",
+        "marks": 39
+      },
+      {
+        "course": "MINOR PROJECT -III",
+        "marks": 38
+      }
+    ]
+  }
+  

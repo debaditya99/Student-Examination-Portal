@@ -1,0 +1,37 @@
+{
+    "Sem 1": [
+      "Discrete Structures",
+      "Computer Networks",
+      "Operating Systems with Linux",
+      "Database Management Systems",
+      "Object Oriented Programming and JAVA",
+      "Computer Networks Lab",
+      "Operating Systems with Linux Lab",
+      "Database Management Systems Lab",
+      "Object Oriented Programming and JAVA Lab"
+    ],
+    "Sem 2": [
+      "Data and File Structures",
+      "Object Oriented Software Engineering",
+      "Python Programming",
+      "Full Stack Development",
+      "Digital Marketing",
+      "Data and File Structures Lab",
+      "Object Oriented Software Engineering Lab",
+      "Python Programming Lab",
+      "Lab. based on Core Elective - I",
+      "Environment Science"
+    ],
+    "Sem 3": [
+      "Design and Analysis of Algorithms",
+      "Artificial Intelligence and Machine Learning",
+      "Cloud Computing",
+      "Multimedia Technologies",
+      "Cyber Security and Cyber Laws",
+      "Design and Analysis of Algorithms Lab",
+      "Artificial Intelligence and Machine Learning Lab",
+      "Lab. based on Core Elective - II",
+      "Lab. based on Core Elective - III"
+    ]
+  }
+  
