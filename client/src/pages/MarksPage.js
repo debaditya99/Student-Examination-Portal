@@ -1,21 +1,22 @@
 import React, { useState } from 'react';
 import MarksForm from './Forms/MarksForm';
+import MarksFormAPI from './Forms/MarksFormAPI';
 
 function MarksPage() {
   // Sample data for subjects and marks
-  const subjects = [
-    { name: 'DESIGN AND ANALYSIS OF ALGORITHMS', marks: 22 },
-    { name: 'ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING', marks: 21 },
-    { name: 'CLOUD COMPUTING', marks: 23 },
-    { name: 'MULTIMEDIA TECHNOLOGIES', marks: 22 },
-    { name: 'CYBER SECURITY AND CYBER LAWS', marks: 21 },
-    { name: 'DESIGN AND ANALYSIS OF ALGORITHMS LAB', marks: 38 },
-    { name: 'ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING LAB', marks: 38 },
-    { name: 'LAB BASED ON CORE ELECTIVE - II', marks: 38 },
-    { name: 'LAB BASED ON CORE ELECTIVE- III', marks: 38 },
-    { name: 'MINOR PROJECT -III', marks: 38 },
+  // const subjects = [
+  //   { name: 'DESIGN AND ANALYSIS OF ALGORITHMS', marks: 22 },
+  //   { name: 'ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING', marks: 21 },
+  //   { name: 'CLOUD COMPUTING', marks: 23 },
+  //   { name: 'MULTIMEDIA TECHNOLOGIES', marks: 22 },
+  //   { name: 'CYBER SECURITY AND CYBER LAWS', marks: 21 },
+  //   { name: 'DESIGN AND ANALYSIS OF ALGORITHMS LAB', marks: 38 },
+  //   { name: 'ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING LAB', marks: 38 },
+  //   { name: 'LAB BASED ON CORE ELECTIVE - II', marks: 38 },
+  //   { name: 'LAB BASED ON CORE ELECTIVE- III', marks: 38 },
+  //   { name: 'MINOR PROJECT -III', marks: 38 },
     // Add more subjects here...
-  ];
+  // ];
 
   const [showMarks, setShowMarks] = useState(false);
 
@@ -36,7 +37,7 @@ function MarksPage() {
             {showMarks && (
             <div className="animated-card card">
               <h2 className='text-center'> View Marks </h2>
-            < MarksForm />
+            < MarksFormAPI />
             </div>
           )}
           </div>

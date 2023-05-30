@@ -4,18 +4,13 @@ import subject from '../../data/marks.json';
 
 const optionsBySemester = subject;
 
-function SubjectForm() {
+function MarksForm() {
   const [semester, setSemester] = useState('');
   const [selectedOption, setSelectedOption] = useState('');
 
   const handleSemesterChange = (event) => {
     setSemester(event.target.value);
     setSelectedOption('');
-  };
-
-  const handleDownload = () => {
-    // Perform download logic here based on the selected semester and option
-    console.log(`Downloading: ${semester} - ${selectedOption}`);
   };
 
   // Get all subjects from all semesters
@@ -78,4 +73,4 @@ function SubjectForm() {
   );
 }
 
-export default SubjectForm;
+export default MarksForm;

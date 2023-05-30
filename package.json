@@ -12,10 +12,12 @@
   "author": "Debaditya Mandal",
   "license": "ISC",
   "dependencies": {
+    "axios": "^1.4.0",
     "bootstrap": "^5.2.3",
     "concurrently": "^8.0.1",
     "express": "^4.18.2",
-    "mongoose": "^7.2.0",
+    "mongodb": "^5.5.0",
+    "mongoose": "^7.2.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.4",
     "react-dom": "^18.2.0",

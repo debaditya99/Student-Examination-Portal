@@ -1,4 +1,4 @@
-# Real README
+# Real README To Recreate?Restart Project from Scratch
 npm init
 
 npm install express mongoose react react-dom concurrently
@@ -37,6 +37,7 @@ npm update
 npm install express mongoose bcrypt jsonwebtoken
 npm install --save-dev nodemon
 npm install axios react-dropzone
+npm install express mongodb mongoose
 
 
 ______________________________
@@ -48,7 +49,7 @@ mongod --dbpath .\data\db\
 mongosh
 ______________________________
 
-use studentExamination
+use studentExamination/studentManagementSystem
 
 db.createCollection("answerSheet")
 
