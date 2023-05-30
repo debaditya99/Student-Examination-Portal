@@ -35,6 +35,7 @@ function MarksForm() {
               <option value="Sem 1">Sem 1</option>
               <option value="Sem 2">Sem 2</option>
               <option value="Sem 3">Sem 3</option> */}
+              
               <option value="">-- Select --</option>
               {Object.keys(optionsBySemester).map((semester) => (
                 <option key={semester} value={semester}>

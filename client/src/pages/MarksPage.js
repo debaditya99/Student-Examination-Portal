@@ -37,7 +37,7 @@ function MarksPage() {
             {showMarks && (
             <div className="animated-card card">
               <h2 className='text-center'> View Marks </h2>
-            < MarksFormAPI />
+            < MarksForm />
             </div>
           )}
           </div>

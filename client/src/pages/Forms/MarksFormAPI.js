@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+
 function MarksFormAPI() {
   const [semester, setSemester] = useState('');
   const [courseName, setCourseName] = useState('');
@@ -16,18 +17,29 @@ function MarksFormAPI() {
     event.preventDefault();
 
     // Perform filtering and fetch data from Express server
-    fetch(`/api/data?semester=${semester}`)
-      .then((response) => response.json())
-      .then((data) => {
-        setCourseName(data.courseName);
-        setAllocMarks(data.allocMarks);
-        setTotalMarks(data.totalMarks);
-        console.log('Data fetched successfully');
-      })
-      .catch((error) => {
-        console.error('Error fetching data:', error);
-      });
-  };
+    axios.post(`/internalmarks/api/data?semester`, semester)
+    .then(response => {
+      console.log(response.data);
+      // Handle the response from the backend
+    })
+    .catch(error => {
+      console.error(error);
+      // Handle any errors
+    });
+  }
+
+
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       setCourseName(data.courseName);
+  //       setAllocMarks(data.allocMarks);
+  //       setTotalMarks(data.totalMarks);
+  //       console.log('Data fetched successfully');
+  //     })
+  //     .catch((error) => {
+  //       console.error('Error fetching data:', error);
+  //     });
+  // };
 
   return (
     <div>
