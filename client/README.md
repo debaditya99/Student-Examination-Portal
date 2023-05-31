@@ -61,6 +61,60 @@ programID: 'S2MCA21', courseID: 'MCA101', examID: 'int1', vigilID: '12321', chec
 
 db.dropDatabase()
 
+//models
+// Require Mongoose
+const mongoose = require("mongoose");
+
+// Define a schema
+const userSchema = new mongoose.Schema({
+  username: String,
+  email: String,
+  age: Number,
+  order: { type: mongoose.Schema.Types.ObjectId, ref: 'Order' }
+},
+{ timestamps: true }); 
+
+module.exports = mongoose.model('User', userSchema);
+
+//router
+const express = require('express');
+const router = express.Router();
+const app = express();
+const User = require('../models/user');
+const Order = require('../models/orders');
+
+
+router.get('/', async (req, res) => {
+    const user = await User.findById('647644962d7d5ae173dbda26').populate('order')
+    res.json(user);
+});
+
+router.post('/', (req, res) => {
+    const username = req.body.username;
+    const email = req.body.email;
+    const age = req.body.age;
+
+    const user = new User({
+        username: username,
+        email: email,
+        age: age,
+    })
+    const order = new Order({
+        name: 'Dark Chorocjaklalte',
+        total: 7,
+    })
+    user.order = order
+    order.user = user
+    user.save();
+    order.save();
+    res.send('Good');
+});
+
+//647644962d7d5ae173dbda26
+
+
+module.exports = router;
+
 
 
 

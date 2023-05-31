@@ -1,0 +1,12 @@
+// Require Mongoose
+const mongoose = require("mongoose");
+
+// Define a schema
+const studentSchema = new mongoose.Schema({
+  studentID: String,
+  name: String,
+  programID: { type: mongoose.Schema.Types.ObjectId, ref: 'Program' },
+},
+{ timestamps: true }); 
+
+module.exports = mongoose.model('User', studentSchema);
