@@ -5,8 +5,8 @@ const mongoose = require("mongoose");
 const studentSchema = new mongoose.Schema({
   studentID: String,
   name: String,
-  programID: { type: mongoose.Schema.Types.ObjectId, ref: 'Program' },
+  programID: { type: mongoose.Schema.Types.String, ref: 'Program' },
 },
 { timestamps: true }); 
 
-module.exports = mongoose.model('User', studentSchema);
+module.exports = mongoose.model('Student', studentSchema);

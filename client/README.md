@@ -115,7 +115,7 @@ router.post('/', (req, res) => {
 
 module.exports = router;
 
-
+QUERY, PARAMMS, BODY
 
 
 # Getting Started with Create React App

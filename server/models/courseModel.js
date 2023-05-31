@@ -5,9 +5,9 @@ const mongoose = require("mongoose");
 const courseSchema = new mongoose.Schema({
   courseID: String,
   name: String,
-  age: Number,
-  order: { type: mongoose.Schema.Types.ObjectId, ref: 'Order' }
+  shortname: String,
+  programID: { type: mongoose.Schema.Types.String, ref: 'Program' },
 },
 { timestamps: true }); 
 
-module.exports = mongoose.model('User', courseSchema);
+module.exports = mongoose.model('Course', courseSchema);
