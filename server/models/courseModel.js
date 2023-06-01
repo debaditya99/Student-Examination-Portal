@@ -7,7 +7,7 @@ const courseSchema = new mongoose.Schema({
   name: String,
   shortname: String,
   semester: Number,
-  programREF: { type: mongoose.Schema.Types.String, ref: 'Program' },
+  programREF: { type: mongoose.Schema.Types.ObjectId, ref: 'Program' },
 },
 { timestamps: true }); 
 

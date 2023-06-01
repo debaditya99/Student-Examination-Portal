@@ -18,49 +18,49 @@ router.post('/', (req, res) => {
     const studentREF = req.body.studentREF;
     const name = req.body.name;
 
-    const program = new Program({
-        programID: "044",
-        name: "Master of Computer Applications",
-        shortname: 'MCA',
-    })
+    // const program = new Program({
+    //     programID: "020",
+    //     name: "Bachelors of Computer Applications",
+    //     shortname: 'BCA',
+    // })
 
-    const student = new Student({
-        studentID: '01035304421',
-        name: 'Debaditya Mandal',
-        // studentID: '01235304421',
-        // name: 'Sahil Jha',
-    })
-    student.programREF = program
-    // student.programID = '64784204143c86a88a51dc1d'
+    // const student = new Student({
+    //     // studentID: '01035304421',
+    //     // name: 'Debaditya Mandal',
+    //     studentID: '01235304421',
+    //     name: 'Sahil Jha',
+    // })
+    // student.programREF = program
+    // student.programREF = '6478d3cd4f3b4ec73356d949'
 
     const course = new Course({
-        courseID: "103",
-        name: "Computer Networks",
-        shortname: 'CN',
+        courseID: "109",
+        name: "Object Oriented Programming and JAVA",
+        shortname: 'Java',
         semester: 1,
     })
-    course.programREF = program
-    // course.programID = '64784204143c86a88a51dc1d'
+    // course.programREF = program
+    course.programREF = '6478d3cd4f3b4ec73356d949'
 
     const answersheet = new AnswerSheet({
-        answerSheetREF: '044103',
+        answerSheetID: '044109',
         
     })
-    answersheet.studentREF =  student
-    answersheet.programREF = program
+    // answersheet.studentREF =  student
+    // answersheet.programREF = program
     answersheet.courseREF = course
-    // answersheet.studentID =  '64784204143c86a88a51dc1e'
-    // answersheet.programID = '64784204143c86a88a51dc1d'
-    // answersheet.courseID = '64784204143c86a88a51dc1f'
+    answersheet.studentREF =  '6478d3cd4f3b4ec73356d94a'
+    answersheet.programREF = '6478d3cd4f3b4ec73356d949'
+    // answersheet.courseREF = '6478d3cd4f3b4ec73356d94b'
 
     const marks = new Marks({
-        allocMarks: 22,
+        allocMarks: 21,
         totalMarks: 25,
     })
     marks.answerSheetREF =  answersheet
 
-    student.save();
-    program.save();
+    // student.save();
+    // program.save();
     course.save();
     answersheet.save();
     marks.save();

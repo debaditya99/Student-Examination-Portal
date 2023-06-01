@@ -18,7 +18,7 @@ function MarksFormAPI() {
     if (semester){
     axios
       .get('http://localhost:3001/data/marks', { 
-        params: { semester, studentREF },
+        params: { semester: semester, studentREF: studentREF },
       })
       .then((res) => {
         console.log('GET request successful:', res.data);
