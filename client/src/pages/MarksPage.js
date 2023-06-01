@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import MarksForm from './Forms/MarksForm';
+import MarksForm from './Forms/MarksFormStatic';
 import MarksFormAPI from './Forms/MarksFormAPI';
 
 function MarksPage() {

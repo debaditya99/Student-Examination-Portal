@@ -34,16 +34,16 @@ router.post('/', (req, res) => {
     // student.programREF = '6478d3cd4f3b4ec73356d949'
 
     const course = new Course({
-        courseID: "109",
-        name: "Object Oriented Programming and JAVA",
-        shortname: 'Java',
-        semester: 1,
+        courseID: "102",
+        name: "Data and File Structures",
+        shortname: 'DFS',
+        semester: 2,
     })
     // course.programREF = program
     course.programREF = '6478d3cd4f3b4ec73356d949'
 
     const answersheet = new AnswerSheet({
-        answerSheetID: '044109',
+        answerSheetID: '044102',
         
     })
     // answersheet.studentREF =  student
@@ -54,7 +54,7 @@ router.post('/', (req, res) => {
     // answersheet.courseREF = '6478d3cd4f3b4ec73356d94b'
 
     const marks = new Marks({
-        allocMarks: 21,
+        allocMarks: 17,
         totalMarks: 25,
     })
     marks.answerSheetREF =  answersheet

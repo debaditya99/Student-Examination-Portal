@@ -40,13 +40,38 @@ router.get('/', async (req, res) => {
             return res.status(404).json({ error: 'Marks not found' });
         }
 
-        const results = answerSheets.map(answerSheet => {
-        const course = courses.find(course => course._id.equals(answerSheet.courseREF));
-        const mark = marks.find(mark => mark.answerSheetREF.equals(answerSheet._id));
+        // const results = answerSheets.map(answerSheet => {
+        //     const course = courses.find(course => course._id.equals(answerSheet.courseREF));
+        //     const mark = marks.find(mark => mark.answerSheetREF.equals(answerSheet._id));
 
-        return results;
-        });
+        //     if (!course || !mark) {
+        //         return null; // Skip this iteration
+        //     }
+
+        //     return {
+        //             courseName: course ? course.name : 'N/A',
+        //             allocMarks: mark ? mark.allocMarks : 'N/A',
+        //             totalMarks: mark ? mark.totalMarks : 'N/A'
+        //     };
+        // });
+
+        const results = answerSheets.reduce((acc, answerSheet) => {
+            const course = courses.find(course => course._id.equals(answerSheet.courseREF));
+            const mark = marks.find(mark => mark.answerSheetREF.equals(answerSheet._id));
+          
+            if (course && mark) {
+              acc.push({
+                courseName: course.name,
+                allocMarks: mark.allocMarks,
+                totalMarks: mark.totalMarks
+              });
+            }
+          
+            return acc;
+          }, []);
+
         console.log(results)
+        res.send(results);
         
 //.toHexString() 
     } catch (err) {
