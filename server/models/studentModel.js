@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const studentSchema = new mongoose.Schema({
   studentID: String,
   name: String,
-  programID: { type: mongoose.Schema.Types.String, ref: 'Program' },
+  programREF: { type: mongoose.Schema.Types.String, ref: 'Program' },
 },
 { timestamps: true }); 
 

@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 
 // Define a schema
 const marksSchema = new mongoose.Schema({
-  answerSheetID: { type: mongoose.Schema.Types.String, ref: 'AnswerSheet' },
+  answerSheetREF: { type: mongoose.Schema.Types.String, ref: 'AnswerSheet' },
   allocMarks: Number,
   totalMarks: Number,
 },

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import subject from '../../data/marks.json';
+import axios from 'axios';
+
 
 const optionsBySemester = subject;
 
@@ -18,6 +20,20 @@ function MarksForm() {
     return [...acc, ...semester.map((subject) => subject.course)];
   }, []);
 
+  const handleGetMarks = async () => {
+    try {
+      const response = await axios.get('http://localhost:3001/data/marks', {
+        params: {
+          semester: parseInt(semester)
+        }
+      });
+      console.log(response.data);
+      // Handle the response data as needed
+    } catch (error) {
+      console.error(error);
+      // Handle errors
+    }
+  };
 
   return (
     <>

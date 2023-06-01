@@ -4,6 +4,7 @@ const cors = require('cors');
 const port = process.env.PORT || 3001
 const mongoose = require('mongoose');
 const initData = require('./routes/initDBrouter');
+const marksRouter = require('./routes/marksRouter');
 const welcomeRouter = require('./routes/welcomeRouter');
 const bodyParser = require('body-parser');
 
@@ -15,8 +16,9 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
-app.use('/data/input', initData)
-app.use('/data/welcome', welcomeRouter)
+app.use('/data/input', initData);
+app.use('/data/welcome', welcomeRouter);
+app.use('/data/marks', marksRouter);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
