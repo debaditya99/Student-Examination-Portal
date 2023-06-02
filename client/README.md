@@ -38,6 +38,7 @@ npm install express mongoose bcrypt jsonwebtoken
 npm install --save-dev nodemon
 npm install axios react-dropzone
 npm install express mongodb mongoose
+npm install multer nodemon cors
 
 
 ______________________________

@@ -1,5 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import EnrollmentForm from './Forms/EnrollmentForm';
+import axios from 'axios';
+import { studentREF } from './constants/studentConstant';
+
+
 
 function CertificatePage() {
   const handleDownload = () => {
@@ -8,12 +12,50 @@ function CertificatePage() {
   };
 
   const [isRequested, setIsRequested] = useState(false);
+  useEffect(() => {
+    // Send POST request on component mount
+    axios
+    .get('http://localhost:3001/data/request/check', {
+      params: { studentREF: studentREF },
+    })
+    .then((res) => {
+      console.log('GET request successful:', res.data);
+      // Check if the request exists in the response
+      const requestExists = res.data.length > 0;
+      // Update the request status
+      setIsRequested(requestExists);
+    })
+    .catch((err) => {
+      console.error('Error sending GET request:', err);
+      // Handle any errors that occurred during the request
+    });
+  }, []);
+
   const handleDownloadCertificate = () => {
     // setShowCertificate((prevValue) => !prevValue);
-
     // Send API request to backend with student ID
     // Assuming you have the student ID available in a variable called 'studentId'
     // Simulating API request with setTimeout
+    if (isRequested) {
+      // Request has already been made, do nothing
+      return;
+    }
+
+    axios
+      .get('http://localhost:3001/data/request', { 
+        params: { studentREF: studentREF,  reqType: 'bonafide-certificate'},
+      })
+      .then((res) => {
+        console.log('GET request successful:', res.data);
+        // Perform any necessary actions upon successful response
+
+        // Check if the request exists in the response
+      })
+        .catch((err) => {
+            console.error('Error sending GET request:', err);
+            // Handle any errors that occurred during the request
+      });
+
     setTimeout(() => {
       setIsRequested(true);
     }, 1000);
@@ -30,16 +72,6 @@ function CertificatePage() {
                 'Certificate Requested' : 'Request Certificate'}</button>
               </div>
             </div>
-            {/* {showCertificate && (
-            <div className="animated-card card">
-              <div className="form-group text-center mt-0">
-                <h2>Request Bonafide Certificate</h2>
-              <div className="form-group text-center mt-4">
-                  <button type="submit" className="btn btn-secondary" onClick={handleDownload}>Request Here</button>
-                </div>
-              </div> 
-            </div>
-          )}*/}
     </div>
     </>
   );

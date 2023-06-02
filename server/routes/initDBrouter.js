@@ -1,11 +1,15 @@
 const express = require('express');
 const router = express.Router();
 const app = express();
+
+
 const Student = require('../models/studentModel');
 const Program = require('../models/programModel');
 const Course = require('../models/courseModel');
 const AnswerSheet = require('../models/answerSheetModel');
 const Marks = require('../models/marksModel');
+const Request = require('../models/requestModel');
+
 
 //to get the user by ID on get request, to fill up the order (FK) table as nested
 router.get('/', async (req, res) => {
@@ -15,8 +19,8 @@ router.get('/', async (req, res) => {
 
 //POST request to add data to DB
 router.post('/', (req, res) => {
-    const studentREF = req.body.studentREF;
-    const name = req.body.name;
+    // const studentREF = req.body.studentREF;
+    // const name = req.body.name;
 
     // const program = new Program({
     //     programID: "020",
@@ -33,24 +37,24 @@ router.post('/', (req, res) => {
     // student.programREF = program
     // student.programREF = '6478d3cd4f3b4ec73356d949'
 
-    const course = new Course({
-        courseID: "203",
-        name: "Artificial Intelligence and Machine Learning",
-        shortname: 'AIML',
-        semester: 3,
-    })
+    // const course = new Course({
+    //     courseID: "203",
+    //     name: "Artificial Intelligence and Machine Learning",
+    //     shortname: 'AIML',
+    //     semester: 3,
+    // })
     // course.programREF = program
-    course.programREF = '6478d3cd4f3b4ec73356d949'
+    // course.programREF = '6478d3cd4f3b4ec73356d949'
 
-    const answersheet = new AnswerSheet({
-        answerSheetID: '044203', 
+    // const answersheet = new AnswerSheet({
+    //     answerSheetID: '044203', 
         
-    })
+    // })
     // answersheet.studentREF =  student
     // answersheet.programREF = program
-    answersheet.courseREF = course
-    answersheet.studentREF =  '6478d3cd4f3b4ec73356d94a'
-    answersheet.programREF = '6478d3cd4f3b4ec73356d949'
+    // answersheet.courseREF = course
+    // answersheet.studentREF =  '6478d3cd4f3b4ec73356d94a'
+    // answersheet.programREF = '6478d3cd4f3b4ec73356d949'
     // answersheet.courseREF = '6478d3cd4f3b4ec73356d94b'
 
     // const marks = new Marks({
@@ -59,13 +63,51 @@ router.post('/', (req, res) => {
     // })
     // marks.answerSheetREF =  answersheet
 
+    // Create multer storage for file uploads
+
+    
+
     // student.save();
     // program.save();
-    course.save();
-    answersheet.save();
+    // course.save();
+    // answersheet.save();
     // marks.save();
+    // datesheet.save();
     res.send('Data has been added');
 });
+
+const fs = require('fs');
+const multer = require('multer');
+const Datesheet = require('../models/requestModel');
+const storage = multer.memoryStorage();
+const upload = multer({ storage });
+
+router.post('/datesheet', async (req, res) => {
+    const filePath = 'Q:/BVICAM/4th Sem/bvicam intern/proj/Student-Examination-Portal/server/files/certificate.pdf';
+    const fileData = fs.readFileSync(filePath);
+
+    try {
+        // Retrieve the uploaded file from req.file
+        const file = fileData;
+  
+        // Create a new Datesheet document
+        const datesheet = new Datesheet({
+            semester: 4,
+            file: {
+                data: file.buffer,
+                contentType: file.mimetype
+            }
+        })
+    datesheet.programREF = '6478d3cd4f3b4ec73356d949'
+      // Save the Datesheet document to the database
+      await datesheet.save();
+
+      res.send('Datesheet document created successfully');
+    } catch (err) {
+      console.error('Error creating Datesheet document:', err);
+      res.status(500).json({ error: 'Server error' });
+    }
+  });
 
 //647644962d7d5ae173dbda26
 module.exports = router;

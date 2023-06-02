@@ -1,5 +1,7 @@
 import { useState } from "react";
 import React from 'react';
+import DatesheetFormAPI from "./Forms/DatesheetFormAPI";
+
 
 function DatesheetPage() {
 
@@ -17,11 +19,11 @@ function DatesheetPage() {
   //   // Add more subjects here...
   // ];
 
-  // const [showDatesheet, setShowDatesheet] = useState(false);
+  const [showDatesheet, setShowDatesheet] = useState(false);
 
-  // const handleViewDatesheet = () => {
-  //   setShowDatesheet((prevValue) => !prevValue);
-  // };
+  const handleViewDatesheet = () => {
+    setShowDatesheet((prevValue) => !prevValue);
+  };
 
   const handleDownload = () => {
     const pdfUrl = process.env.PUBLIC_URL + '/certificate.pdf'; // Replace with the actual filename of your PDF file
@@ -34,32 +36,15 @@ function DatesheetPage() {
               <div className="card-body  text-center ">
                 <h5 className="card-title">Upcoming Exams</h5>
                 <p className="card-text">Check the datesheet for upcoming exams.</p>
-                <button className="btn btn-primary" onClick={handleDownload}>View Datesheet</button>
+                <button className="btn btn-primary" onClick={handleViewDatesheet}>View Datesheet</button>
               </div>
             </div>
-            {/* {showDatesheet && (
+            {showDatesheet && (
             <div className="animated-card card">
-              <h2>
-                Upcoming Exams
-              </h2>
-              <table className='table'>
-                <thead>
-                  <tr>
-                    <th>Exams</th>
-                    <th>Dates</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {subjects.map((subject, index) => (
-                    <tr key={index}>
-                      <td>{subject.name}</td>
-                      <td>{subject.dates}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+              <h2 className='text-center'> View Datesheet </h2>
+            < DatesheetFormAPI />
             </div>
-          )} */}
+          )}
     </div>
     
     </>

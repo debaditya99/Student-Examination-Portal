@@ -6,10 +6,13 @@ const mongoose = require('mongoose');
 const initData = require('./routes/initDBrouter');
 const marksRouter = require('./routes/marksRouter');
 const welcomeRouter = require('./routes/welcomeRouter');
+const reqRouter = require('./routes/reqRouter');
+
 const bodyParser = require('body-parser');
 
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
+
 app.use(cors());
 
 app.get('/', (req, res) => {
@@ -19,6 +22,9 @@ app.get('/', (req, res) => {
 app.use('/data/input', initData);
 app.use('/data/welcome', welcomeRouter);
 app.use('/data/marks', marksRouter);
+app.use('/data/request', reqRouter);
+
+
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
