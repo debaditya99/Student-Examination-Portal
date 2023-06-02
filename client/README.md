@@ -36,7 +36,7 @@ npm update
 
 npm install express mongoose bcrypt jsonwebtoken
 npm install --save-dev nodemon
-npm install axios react-dropzone
+npm install axios react-dropzone dotenv
 npm install express mongodb mongoose
 npm install multer nodemon cors moment-timezone
 

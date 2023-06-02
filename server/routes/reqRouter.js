@@ -34,7 +34,7 @@ router.get('/check', async (req, res) => {
     }
     // res.send(student.name);
     console.log(student._id)
-    const requests = await Request.find({ studentREF: student._id, status: 0 });
+    const requests = await Request.find({ studentREF: student._id, status: 0, requestType: 'bonafide-certificate' });
     console.log(requests)
     if (!requests || requests.length === 0) {
         // return res.status(404).json({ error: 'Answer sheet not found' });
@@ -48,9 +48,10 @@ const Datesheet = require('../models/datesheetModel');
 router.get('/datesheet', async (req, res) => {
     const { studentREF, semester } = req.query;
     
+    //sending request info to Request Collection
     axios
-        .get('http://localhost:3001/data/request', { 
-        params: { studentREF: '6478d3cd4f3b4ec73356d94a',  reqType: 'datesheet'},
+        .get(`http://localhost:3001/data/request`, { 
+        params: { studentREF: studentREF,  reqType: 'datesheet'},
         })
         .then((res) => {
         console.log('GET request successful:', res.data);

@@ -5,6 +5,7 @@ const Student = require('../models/studentModel');
 const AnswerSheet = require('../models/answerSheetModel');
 const Course = require('../models/courseModel');
 const Marks = require('../models/marksModel');
+const axios = require('axios');
 
 const emptyCourse = { courseName: "N/A", allocMarks: "-", totalMarks: '-' }
 const emptyMarks = { allocMarks: "-", totalMarks: '-' }
@@ -15,6 +16,20 @@ router.get('/', async (req, res) => {
     // const user = await Student.findById(studentID)
     // res.send(user.name);
     const { semester, studentREF } = req.query;
+
+    //sending request info to Request Collection
+    axios
+        .get(`http://localhost:3001/data/request`, { 
+        params: { studentREF: studentREF,  reqType: 'marks'},
+        })
+        .then((res) => {
+        console.log('GET request successful:', res.data);
+        // Perform any necessary actions upon successful response
+        })
+        .catch((err) => {
+            console.error('Error sending GET request:', err);
+            // Handle any errors that occurred during the request
+        }); 
 
     try {
         const student = await Student.findById(studentREF).populate('programREF');

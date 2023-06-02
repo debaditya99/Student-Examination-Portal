@@ -1,7 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { studentREF } from './constants/studentConstant';
-// const studentID = "647767b0e27def1886177f24";
 
 function Welcome() {
   const [welcomeMessage, setWelcomeMessage] = useState('');
@@ -9,7 +8,7 @@ function Welcome() {
   useEffect(() => {
     // Send POST request on component mount
     axios
-      .get('http://localhost:3001/data/welcome', { 
+      .get(`http://localhost:3001/data/welcome`, { 
         params: { studentREF },
       })
       .then((res) => {

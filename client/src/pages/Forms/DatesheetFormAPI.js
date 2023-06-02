@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { studentREF } from '../constants/studentConstant';
+import { studentREF} from '../constants/studentConstant';
+
 
 
 function DatesheetFormAPI() {
   const [semester, setSemester] = useState('');
-  const [datesheets, setDatesheets] = useState('');
+  const [datesheets, setDatesheets] = useState([]);
   const semestersOptions = ['Semester 1', 'Semester 2', 'Semester 3', 'Semester 4'];
 
 
@@ -13,11 +14,11 @@ function DatesheetFormAPI() {
     const selectedSemester = event.target.value;
     setSemester(selectedSemester);
   };
-
-  const handleSubmit = (event) => {
+  useEffect(() => {
+  // const handleSubmit = (event) => {
     if (semester){
       axios
-        .get('http://localhost:3001/data/request/datesheet', { 
+        .get(`http://localhost:3001/data/request/datesheet`, { 
           params: { semester: semester, studentREF: studentREF },
         })
         .then((res) => {
@@ -37,7 +38,7 @@ function DatesheetFormAPI() {
       // Clear the state variables if no semester is selected
       setDatesheets([]);
     }
-  }
+  }, [semester]);
   // const handleSemesterChange = (event) => {
   //   setSemester(event.target.value);
   // };
@@ -62,10 +63,14 @@ function DatesheetFormAPI() {
           </select>
           </div>
           </div>
-          <button className="btn btn-secondary mt-4" onClick={handleSubmit}>
+          
+          {semester && (
+            <>
+            {/* <button className="btn btn-secondary mt-4" onClick={handleSubmit}>
             Download
-          </button>  
-          { (datesheets.length > 0) && (
+          </button> */}
+          
+          { datesheets.length > 0 && (
         <div className="table-responsive mt-3">
           <table className="table table-bordered">
             <thead>
@@ -92,6 +97,8 @@ function DatesheetFormAPI() {
           </table>
           </div>
         )}  
+        </>
+        )}
       </div>
   );
 }

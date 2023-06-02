@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const app = express();
 
-
 const Student = require('../models/studentModel');
 const Program = require('../models/programModel');
 const Course = require('../models/courseModel');
@@ -111,5 +110,4 @@ router.post('/datesheet', async (req, res) => {
   }
 });
 
-//647644962d7d5ae173dbda26
 module.exports = router;

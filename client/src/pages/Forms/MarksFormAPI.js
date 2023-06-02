@@ -21,7 +21,7 @@ function MarksFormAPI() {
     // Send GET request on component mount
     if (semester){
     axios
-      .get('http://localhost:3001/data/marks', { 
+      .get(`http://localhost:3001/data/marks`, { 
         params: { semester: semester, studentREF: studentREF },
       })
       .then((res) => {
@@ -49,7 +49,6 @@ function MarksFormAPI() {
   }
   }, [semester]);
 
-  
   return (
     <div className="container text-center ">
       <div className="form-group mt-2 row">

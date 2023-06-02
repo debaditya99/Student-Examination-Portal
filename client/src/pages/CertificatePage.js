@@ -15,7 +15,7 @@ function CertificatePage() {
   useEffect(() => {
     // Send POST request on component mount
     axios
-    .get('http://localhost:3001/data/request/check', {
+    .get(`http://localhost:3001/data/request/check`, {
       params: { studentREF: studentREF },
     })
     .then((res) => {
@@ -42,7 +42,7 @@ function CertificatePage() {
     }
 
     axios
-      .get('http://localhost:3001/data/request', { 
+      .get(`http://localhost:3001/data/request`, { 
         params: { studentREF: studentREF,  reqType: 'bonafide-certificate'},
       })
       .then((res) => {
