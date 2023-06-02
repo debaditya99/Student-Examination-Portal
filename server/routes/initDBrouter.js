@@ -78,36 +78,38 @@ router.post('/', (req, res) => {
 
 const fs = require('fs');
 const multer = require('multer');
-const Datesheet = require('../models/requestModel');
+const Datesheet = require('../models/datesheetModel');
+// const Datesheet = require('../files');
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
 
 router.post('/datesheet', async (req, res) => {
-    const filePath = 'Q:/BVICAM/4th Sem/bvicam intern/proj/Student-Examination-Portal/server/files/certificate.pdf';
-    const fileData = fs.readFileSync(filePath);
+  const filePath = 'Q:/BVICAM/4th Sem/bvicam intern/proj/Student-Examination-Portal/server/files/marksheet.pdf'; // Update with the actual file path
+  const fileData = fs.readFileSync(filePath);
 
-    try {
-        // Retrieve the uploaded file from req.file
-        const file = fileData;
-  
-        // Create a new Datesheet document
-        const datesheet = new Datesheet({
-            semester: 4,
-            file: {
-                data: file.buffer,
-                contentType: file.mimetype
-            }
-        })
-    datesheet.programREF = '6478d3cd4f3b4ec73356d949'
-      // Save the Datesheet document to the database
-      await datesheet.save();
+  try {
+    // Retrieve the uploaded file from req.file
+    const file = Buffer.from(fileData);
 
-      res.send('Datesheet document created successfully');
-    } catch (err) {
-      console.error('Error creating Datesheet document:', err);
-      res.status(500).json({ error: 'Server error' });
-    }
-  });
+    // Create a new Datesheet document
+    const datesheet = new Datesheet({
+      semester: 4,
+      file: {
+        data: file,
+        contentType: 'application/pdf'
+      }
+    });
+    datesheet.programREF = '6478d3cd4f3b4ec73356d949';
+
+    // Save the Datesheet document to the database
+    await datesheet.save();
+
+    res.send('Datesheet document created successfully');
+  } catch (err) {
+    console.error('Error creating Datesheet document:', err);
+    res.status(500).json({ error: 'Server error' });
+  }
+});
 
 //647644962d7d5ae173dbda26
 module.exports = router;

@@ -1,3 +1,5 @@
+process.env.TZ = 'Asia/Kolkata';
+
 const express = require('express')
 const app = express()
 const cors = require('cors');
@@ -40,3 +42,5 @@ mongoose.connect('mongodb://127.0.0.1:27017/studentExaminationPortal', {
   .catch((error) => {
     console.error('MongoDB connection error:', error);
   });
+
+  const moment = require('moment-timezone');
