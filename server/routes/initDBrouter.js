@@ -9,7 +9,7 @@ const Marks = require('../models/marksModel');
 
 //to get the user by ID on get request, to fill up the order (FK) table as nested
 router.get('/', async (req, res) => {
-    const user = await Student.findById('64784204143c86a88a51dc1e').populate('program')
+    const user = await Student.findById('64784204143c86a88a51dc1e').populate('programREF')
     res.json(user);
 });
 
@@ -34,16 +34,16 @@ router.post('/', (req, res) => {
     // student.programREF = '6478d3cd4f3b4ec73356d949'
 
     const course = new Course({
-        courseID: "102",
-        name: "Data and File Structures",
-        shortname: 'DFS',
-        semester: 2,
+        courseID: "203",
+        name: "Artificial Intelligence and Machine Learning",
+        shortname: 'AIML',
+        semester: 3,
     })
     // course.programREF = program
     course.programREF = '6478d3cd4f3b4ec73356d949'
 
     const answersheet = new AnswerSheet({
-        answerSheetID: '044102',
+        answerSheetID: '044203', 
         
     })
     // answersheet.studentREF =  student
@@ -53,17 +53,17 @@ router.post('/', (req, res) => {
     answersheet.programREF = '6478d3cd4f3b4ec73356d949'
     // answersheet.courseREF = '6478d3cd4f3b4ec73356d94b'
 
-    const marks = new Marks({
-        allocMarks: 17,
-        totalMarks: 25,
-    })
-    marks.answerSheetREF =  answersheet
+    // const marks = new Marks({
+    //     allocMarks: 24,
+    //     totalMarks: 25,
+    // })
+    // marks.answerSheetREF =  answersheet
 
     // student.save();
     // program.save();
     course.save();
     answersheet.save();
-    marks.save();
+    // marks.save();
     res.send('Data has been added');
 });
 

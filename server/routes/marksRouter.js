@@ -6,6 +6,9 @@ const AnswerSheet = require('../models/answerSheetModel');
 const Course = require('../models/courseModel');
 const Marks = require('../models/marksModel');
 
+const emptyCourse = { courseName: "N/A", allocMarks: "-", totalMarks: '-' }
+const emptyMarks = { allocMarks: "-", totalMarks: '-' }
+
 //GET request to retieve data to DB
 router.get('/', async (req, res) => {
     // const studentID = req.body.studentID;
@@ -23,21 +26,28 @@ router.get('/', async (req, res) => {
         console.log(student._id)
         const answerSheets = await AnswerSheet.find({ studentREF: student._id });
         console.log(answerSheets)
-
         if (!answerSheets || answerSheets.length === 0) {
-            return res.status(404).json({ error: 'Answer sheet not found' });
+            // return res.status(404).json({ error: 'Answer sheet not found' });
+            return res.send([emptyCourse]);
         }
 
         const courseREFs = answerSheets.map(answerSheet => answerSheet.courseREF);
         const courses = await Course.find({ _id: { $in: courseREFs }, semester });
         if (!courses || courses.length === 0) {
-            return res.status(404).json({ error: 'Course not found' });
+            // return res.status(404).json({ error: 'Course not found' });
+            return res.send([emptyCourse]);
         }
 
         const answerSheetREFs = answerSheets.map(answerSheet => answerSheet._id);
         const marks = await Marks.find({ answerSheetREF: { $in: answerSheetREFs } });
         if (!marks || marks.length === 0) {
-            return res.status(404).json({ error: 'Marks not found' });
+            // return res.status(404).json({ error: 'Marks not found' });
+            // return res.send([emptyCourse]);
+            const results = courses.map(course => ({
+                courseName: course.name,
+                ...emptyMarks
+              }));
+              return res.send(results);
         }
 
         // const results = answerSheets.map(answerSheet => {
@@ -69,6 +79,14 @@ router.get('/', async (req, res) => {
           
             return acc;
           }, []);
+        
+        if(results == (0) || results == []){
+            const results = courses.map(course => ({
+                courseName: course.name,
+                ...emptyMarks
+              }));
+              return res.send(results);
+        }
 
         console.log(results)
         res.send(results);

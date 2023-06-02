@@ -7,7 +7,7 @@ function MarksFormAPI() {
   const [courseName, setCourseName] = useState('');
   const [allocMarks, setAllocMarks] = useState('');
   const [totalMarks, setTotalMarks] = useState('');
-  const semestersOptions = ['Semester 1', 'Semester 2', 'Semester 3'];
+  const semestersOptions = ['Semester 1', 'Semester 2', 'Semester 3', 'Semester 4'];
 
   // const handleSemesterChange = (event) => {
   //   setSemester(event.target.value);
@@ -28,7 +28,6 @@ function MarksFormAPI() {
         console.log('GET request successful:', res.data);
         // Perform any necessary actions upon successful response
         const data = res.data;
-        const filteredData = data.filter((result) => result.semester === semester);
 
         const courseNames = data.map((result) => result.courseName);
         const allocatedMarks = data.map((result) => result.allocMarks);
@@ -72,7 +71,7 @@ function MarksFormAPI() {
           </div>
       </div>
 
-      { courseName.length > 0 && (
+      { (courseName.length > 0) && (
         <div className="table-responsive mt-3">
           <table className="table table-bordered">
             <thead>
