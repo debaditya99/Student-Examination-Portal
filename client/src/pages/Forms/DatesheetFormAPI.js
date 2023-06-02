@@ -70,6 +70,11 @@ function DatesheetFormAPI() {
             Download
           </button> */}
           
+          {datesheets.length === 0 && (
+            <h5 className="mt-4 mb-0">
+              No Datesheets Available
+              </h5>
+          )}
           { datesheets.length > 0 && (
         <div className="table-responsive mt-3">
           <table className="table table-bordered">
@@ -96,7 +101,7 @@ function DatesheetFormAPI() {
             </tbody>
           </table>
           </div>
-        )}  
+        )}
         </>
         )}
       </div>

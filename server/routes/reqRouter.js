@@ -74,39 +74,17 @@ router.get('/datesheet', async (req, res) => {
             programREF: student.programREF,
             semester: Number(semester),
         });
-
-        // const datesheets = await Datesheet.find({
-        //   programREF: programREF,
-        //   semester: Number(semester),
-        // });
-
-        // Extract only the filenames from the datesheets
-        // const filenames = datesheets.map((datesheet) => datesheet.filename);
-    
-        // Extract filenames and file URLs from the datesheets
+        
         const files = datesheets.map((datesheet) => ({
             filename: `Posted on ${datesheet.updatedAt}`,
             url: `http://localhost:3001/data/request/datesheet/${datesheet._id}`,
         }));
-
+        
         res.json(files);
       } catch (err) {
         console.error('Error retrieving datesheets:', err);
         res.status(500).json({ error: 'Server error' });
       }
-    // try {
-    //     const student = await Student.findById(studentREF).populate('programREF');
-    //     console.log(student)
-    //     if (!student) {
-    //         return res.status(404).json({ error: 'Student not found' });
-    //     }
-    //     // res.send(student.name);
-        
-    // //.toHexString() 
-    // } catch (err) {
-    //     console.error('Error retrieving student:', err);
-    //     res.status(500).json({ error: 'Server error' });
-    // }
 })
 
 // Download a specific datesheet
