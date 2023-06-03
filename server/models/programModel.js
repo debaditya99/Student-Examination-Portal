@@ -6,6 +6,7 @@ const programSchema = new mongoose.Schema({
   programID: String,
   name: String,
   shortname: String,
+  duration: Number,
 },
 { timestamps: true }); 
 

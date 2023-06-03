@@ -7,13 +7,31 @@ import { studentREF} from '../constants/studentConstant';
 function DatesheetFormAPI() {
   const [semester, setSemester] = useState('');
   const [datesheets, setDatesheets] = useState([]);
-  const semestersOptions = ['Semester 1', 'Semester 2', 'Semester 3', 'Semester 4'];
-
+  // const semestersOptions = ['Semester 1', 'Semester 2', 'Semester 3', 'Semester 4'];
+  const [semestersOptions, setSemesterOptions] = useState([]);
 
   const handleSemesterChange = (event) => {
     const selectedSemester = event.target.value;
     setSemester(selectedSemester);
   };
+
+  useEffect(() => {
+    // Fetch total semesters from the backend
+    axios
+      .get('http://localhost:3001/data/request/semesters', { 
+        params: { studentREF: studentREF },
+      }) // Replace with your backend endpoint
+      .then((res) => {
+        const totalSemesters = res.data;
+        const options = Array.from({ length: totalSemesters }, (_, index) => `Semester ${index + 1}`);
+        // console.log(options)
+        setSemesterOptions(options);
+      })
+      .catch((err) => {
+        console.error('Error fetching semesters:', err);
+      });
+  }, []);
+
   useEffect(() => {
   // const handleSubmit = (event) => {
     if (semester){
@@ -80,15 +98,10 @@ function DatesheetFormAPI() {
           <table className="table table-bordered">
             <thead>
               <tr>
-                <th  className="col-sm-9">Datesheets</th>
+                <th className="col-sm-9">Datesheets</th>
               </tr>
             </thead>
             <tbody>
-              {/* {datesheets.map((datesheet, index) => (
-                <tr key={index}>
-                  <td>{datesheet}</td>
-                </tr>
-              ))} */}
               {datesheets.map((datesheet, index) => (
                 <tr key={index}>
                   <td>

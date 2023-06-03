@@ -11,10 +11,10 @@ const Request = require('../models/requestModel');
 
 
 //to get the user by ID on get request, to fill up the order (FK) table as nested
-router.get('/', async (req, res) => {
-    const user = await Student.findById('64784204143c86a88a51dc1e').populate('programREF')
-    res.json(user);
-});
+// router.get('/', async (req, res) => {
+//     const user = await Student.findById('64784204143c86a88a51dc1e').populate('programREF')
+//     res.json(user);
+// });
 
 //POST request to add data to DB
 router.post('/', (req, res) => {
@@ -22,9 +22,10 @@ router.post('/', (req, res) => {
     // const name = req.body.name;
 
     // const program = new Program({
-    //     programID: "020",
-    //     name: "Bachelors of Computer Applications",
-    //     shortname: 'BCA',
+    //     programID: "044",
+    //     name: "Masters of Computer Applications",
+    //     shortname: 'MCA',
+    //     duration: '2',
     // })
 
     // const student = new Student({
@@ -53,7 +54,7 @@ router.post('/', (req, res) => {
     // answersheet.programREF = program
     // answersheet.courseREF = course
     // answersheet.studentREF =  '6478d3cd4f3b4ec73356d94a'
-    // answersheet.programREF = '6478d3cd4f3b4ec73356d949'
+    // answersheet.programREF = '647b3118b1b6e7f003a7f453'
     // answersheet.courseREF = '6478d3cd4f3b4ec73356d94b'
 
     // const marks = new Marks({
@@ -63,9 +64,6 @@ router.post('/', (req, res) => {
     // marks.answerSheetREF =  answersheet
 
     // Create multer storage for file uploads
-
-    
-
     // student.save();
     // program.save();
     // course.save();
@@ -83,7 +81,7 @@ const storage = multer.memoryStorage();
 const upload = multer({ storage });
 
 router.post('/datesheet', async (req, res) => {
-  const filePath = 'Q:/BVICAM/4th Sem/bvicam intern/proj/Student-Examination-Portal/server/files/marksheet.pdf'; // Update with the actual file path
+  const filePath = 'Q:/BVICAM/4th Sem/bvicam intern/proj/Student-Examination-Portal/server/files/datesheet IV.pdf'; // Update with the actual file path
   const fileData = fs.readFileSync(filePath);
 
   try {
@@ -98,7 +96,7 @@ router.post('/datesheet', async (req, res) => {
         contentType: 'application/pdf'
       }
     });
-    datesheet.programREF = '6478d3cd4f3b4ec73356d949';
+    datesheet.programREF = '647b3118b1b6e7f003a7f453';
 
     // Save the Datesheet document to the database
     await datesheet.save();

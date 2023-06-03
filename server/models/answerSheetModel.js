@@ -7,6 +7,10 @@ const answerSheetSchema = new mongoose.Schema({
   studentREF: { type: mongoose.Schema.Types.ObjectId, ref: 'Student' },
   programREF: { type: mongoose.Schema.Types.ObjectId, ref: 'Program' },
   courseREF: { type: mongoose.Schema.Types.ObjectId, ref: 'Course' },
+  file: {
+    data: Buffer,
+    contentType: String
+  }
 },
 { timestamps: true }); 
 

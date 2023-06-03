@@ -39,7 +39,7 @@ function MarksPage() {
               <h2 className='text-center'> View Marks </h2>
             < MarksFormAPI />
             </div>
-          )}
+            )}
     </div>
     </>
   );

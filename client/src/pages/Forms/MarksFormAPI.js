@@ -7,7 +7,9 @@ function MarksFormAPI() {
   const [courseName, setCourseName] = useState('');
   const [allocMarks, setAllocMarks] = useState('');
   const [totalMarks, setTotalMarks] = useState('');
-  const semestersOptions = ['Semester 1', 'Semester 2', 'Semester 3', 'Semester 4'];
+  // const semestersOptions = ['Semester 1', 'Semester 2', 'Semester 3', 'Semester 4'];
+  const [semestersOptions, setSemesterOptions] = useState([]);
+
 
   // const handleSemesterChange = (event) => {
   //   setSemester(event.target.value);
@@ -16,6 +18,23 @@ function MarksFormAPI() {
     const selectedSemester = event.target.value;
     setSemester(selectedSemester);
   };
+
+  useEffect(() => {
+    // Fetch total semesters from the backend
+    axios
+      .get('http://localhost:3001/data/request/semesters', { 
+        params: { studentREF: studentREF },
+      }) // Replace with your backend endpoint
+      .then((res) => {
+        const totalSemesters = res.data;
+        const options = Array.from({ length: totalSemesters }, (_, index) => `Semester ${index + 1}`);
+        // console.log(options)
+        setSemesterOptions(options);
+      })
+      .catch((err) => {
+        console.error('Error fetching semesters:', err);
+      });
+  }, []);
 
   useEffect(() => {
     // Send GET request on component mount
@@ -55,7 +74,7 @@ function MarksFormAPI() {
           <label htmlFor="selectSemester" className="col-sm-3 col-form-label">Semester</label>
           <div className="col-sm-9">
           <select
-            id="selectSemester"
+            id = "selectSemester"
             className="form-control"
             value={semester}
             onChange={handleSemesterChange}

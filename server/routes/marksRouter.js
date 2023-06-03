@@ -33,14 +33,14 @@ router.get('/', async (req, res) => {
 
     try {
         const student = await Student.findById(studentREF).populate('programREF');
-        console.log(student)
+        // console.log(student)
         if (!student) {
             return res.status(404).json({ error: 'Student not found' });
         }
         // res.send(student.name);
-        console.log(student._id)
+        // console.log(student._id)
         const answerSheets = await AnswerSheet.find({ studentREF: student._id });
-        console.log(answerSheets)
+        // console.log(answerSheets)
         if (!answerSheets || answerSheets.length === 0) {
             // return res.status(404).json({ error: 'Answer sheet not found' });
             return res.send([emptyCourse]);
@@ -64,7 +64,6 @@ router.get('/', async (req, res) => {
               }));
               return res.send(results);
         }
-
         // const results = answerSheets.map(answerSheet => {
         //     const course = courses.find(course => course._id.equals(answerSheet.courseREF));
         //     const mark = marks.find(mark => mark.answerSheetREF.equals(answerSheet._id));
@@ -79,7 +78,6 @@ router.get('/', async (req, res) => {
         //             totalMarks: mark ? mark.totalMarks : 'N/A'
         //     };
         // });
-
         const results = answerSheets.reduce((acc, answerSheet) => {
             const course = courses.find(course => course._id.equals(answerSheet.courseREF));
             const mark = marks.find(mark => mark.answerSheetREF.equals(answerSheet._id));

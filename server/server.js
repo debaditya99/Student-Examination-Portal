@@ -9,6 +9,7 @@ const initData = require('./routes/initDBrouter');
 const marksRouter = require('./routes/marksRouter');
 const welcomeRouter = require('./routes/welcomeRouter');
 const reqRouter = require('./routes/reqRouter');
+const downloadRouter = require('./routes/downloadRouter');
 
 const bodyParser = require('body-parser');
 
@@ -27,6 +28,7 @@ app.use('/data/input', initData);
 app.use('/data/welcome', welcomeRouter);
 app.use('/data/marks', marksRouter);
 app.use('/data/request', reqRouter);
+app.use('/data/download', downloadRouter);
 
 
 

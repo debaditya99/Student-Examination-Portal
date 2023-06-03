@@ -3,7 +3,6 @@ const router = express.Router();
 const axios = require('axios');
 
 const Student = require('../models/studentModel');
-const Program = require('../models/programModel');
 const Request = require('../models/requestModel');
 
 
@@ -28,20 +27,36 @@ router.get('/check', async (req, res) => {
     const { studentREF } = req.query;
 
     const student = await Student.findById(studentREF).populate('programREF');
-    console.log(student)
+    // console.log(student)/
     if (!student) {
         return res.status(404).json({ error: 'Student not found' });
     }
     // res.send(student.name);
-    console.log(student._id)
+    // console.log(student._id)
     const requests = await Request.find({ studentREF: student._id, status: 0, requestType: 'bonafide-certificate' });
-    console.log(requests)
+    // console.log(requests)
     if (!requests || requests.length === 0) {
         // return res.status(404).json({ error: 'Answer sheet not found' });
     } else {
         res.send("Already Exists")
     }
 });
+
+const Program = require('../models/programModel');
+
+router.get('/semesters', async (req, res) => {
+  const { studentREF } = req.query;
+  try{
+    const student = await Student.findById(studentREF).populate('programREF');
+    console.log(student)
+    const semester = Number(student.programREF.duration) * 2;
+     res.send(semester.toString());
+
+  } catch(err) {
+    console.error('Error retrieving Semesters:', err);
+    res.status(500).json({ error: 'Server error' });
+  }
+})
 
 const Datesheet = require('../models/datesheetModel');
 
@@ -64,7 +79,7 @@ router.get('/datesheet', async (req, res) => {
 
     try {
         const student = await Student.findById(studentREF).populate('programREF');
-        console.log(student)
+        // console.log(student)
         if (!student) {
             return res.status(404).json({ error: 'Student not found' });
         }
@@ -77,7 +92,7 @@ router.get('/datesheet', async (req, res) => {
         
         const files = datesheets.map((datesheet) => ({
             filename: `Posted on ${datesheet.updatedAt}`,
-            url: `http://localhost:3001/data/request/datesheet/${datesheet._id}`,
+            url: `http://localhost:3001/data/download/datesheet/${datesheet._id}`,
         }));
         
         res.json(files);
@@ -86,32 +101,5 @@ router.get('/datesheet', async (req, res) => {
         res.status(500).json({ error: 'Server error' });
       }
 })
-
-// Download a specific datesheet
-router.get('/datesheet/:id', async (req, res) => {
-    const { id } = req.params;
-  
-    try {
-      // Find the datesheet with the given ID
-      const datesheet = await Datesheet.findById(id);
-  
-      if (!datesheet) {
-        return res.status(404).json({ error: 'Datesheet not found' });
-      }
-  
-      // Set the appropriate response headers for file download
-      res.set({
-        'Content-Type': datesheet.file.contentType,
-        'Content-Disposition': `attachment; filename=${datesheet.filename}`,
-      });
-  
-      // Send the file data as the response
-      res.send(datesheet.file.data);
-    } catch (err) {
-      console.error('Error retrieving datesheet for download:', err);
-      res.status(500).json({ error: 'Server error' });
-    }
-  });
-
 
 module.exports = router;
