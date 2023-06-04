@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import EnrollmentForm from './Forms/EnrollmentForm';
+import EnrollmentForm from './Forms/obsolete/EnrollmentForm';
 import axios from 'axios';
 import { studentREF } from './constants/studentConstant';
 
@@ -21,7 +21,7 @@ function CertificatePage() {
     .then((res) => {
       console.log('GET request successful:', res.data);
       // Check if the request exists in the response
-      const requestExists = res.data.length > 0;
+      const requestExists = Number(res.data.length) > 0;
       // Update the request status
       setIsRequested(requestExists);
     })

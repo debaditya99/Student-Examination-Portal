@@ -108,4 +108,34 @@ router.post('/datesheet', async (req, res) => {
   }
 });
 
+router.post('/answersheet', async (req, res) => {
+  const filePath = 'Q:/BVICAM/4th Sem/bvicam intern/proj/Student-Examination-Portal/server/files/answersheet.pdf'; // Update with the actual file path
+  const fileData = fs.readFileSync(filePath);
+
+  try {
+    // Retrieve the uploaded file from req.file
+    const file = Buffer.from(fileData);
+
+    // Create a new Datesheet document
+    const answersheet = new AnswerSheet({
+      answerSheetID: '044128', 
+      file: {
+        data: file,
+        contentType: 'application/pdf'
+      }
+    });
+    answersheet.studentREF =  '6478d3cd4f3b4ec73356d94a'
+    answersheet.programREF = '647b3118b1b6e7f003a7f453'
+    answersheet.courseREF = '6479b1c83b068449b92f2abe'
+
+    // Save the Datesheet document to the database
+    await answersheet.save();
+
+    res.send('Answer Sheet document created successfully');
+  } catch (err) {
+    console.error('Error creating answer Sheet document:', err);
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
 module.exports = router;

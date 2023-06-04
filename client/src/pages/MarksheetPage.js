@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import EnrollmentForm from './Forms/EnrollmentForm';
+import EnrollmentForm from './Forms/obsolete/EnrollmentForm';
 import subject from '../data/marks.json';
 
 const optionsBySemester = subject;

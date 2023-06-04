@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { studentREF} from '../constants/studentConstant';
-
-
+import { studentREF } from '../constants/studentConstant';
 
 function DatesheetFormAPI() {
   const [semester, setSemester] = useState('');
@@ -40,16 +38,13 @@ function DatesheetFormAPI() {
           params: { semester: semester, studentREF: studentREF },
         })
         .then((res) => {
-          console.log('GET request successful:', res.data);
+          console.log('GET request datesheet successful:', res.data);
           // Perform any necessary actions upon successful response
-          
-  
           // const datesheet = data.map((result) => result.datesheet);
-  
           setDatesheets(res.data);
         })
           .catch((err) => {
-              console.error('Error sending GET request:', err);
+              console.error('Error sending GET datesheet request:', err);
               // Handle any errors that occurred during the request
         });
     } else {
@@ -57,9 +52,6 @@ function DatesheetFormAPI() {
       setDatesheets([]);
     }
   }, [semester]);
-  // const handleSemesterChange = (event) => {
-  //   setSemester(event.target.value);
-  // };
   
   return (
     <div className="container text-center ">

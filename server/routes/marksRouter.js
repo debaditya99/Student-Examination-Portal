@@ -18,20 +18,24 @@ router.get('/', async (req, res) => {
     const { semester, studentREF } = req.query;
 
     //sending request info to Request Collection
-    axios
-        .get(`http://localhost:3001/data/request`, { 
-        params: { studentREF: studentREF,  reqType: 'marks'},
-        })
-        .then((res) => {
-        console.log('GET request successful:', res.data);
-        // Perform any necessary actions upon successful response
-        })
-        .catch((err) => {
-            console.error('Error sending GET request:', err);
-            // Handle any errors that occurred during the request
-        }); 
-
+    // axios
+    //     .get(`http://localhost:3001/data/request`, { 
+    //     params: { studentREF: studentREF,  reqType: 'marks'},
+    //     })
+    //     .then((res) => {
+    //     console.log('GET request successful:', res.data);
+    //     // Perform any necessary actions upon successful response
+    //     })
+    //     .catch((err) => {
+    //         console.error('Error sending GET request:', err);
+    //         // Handle any errors that occurred during the request
+    //     }); 
     try {
+        const marksReqRes = await axios.get(`http://localhost:3001/data/request`, { 
+            params: { studentREF: studentREF,  reqType: 'marks'},
+        })
+        console.log('GET request successful:', marksReqRes);
+
         const student = await Student.findById(studentREF).populate('programREF');
         // console.log(student)
         if (!student) {
@@ -39,7 +43,10 @@ router.get('/', async (req, res) => {
         }
         // res.send(student.name);
         // console.log(student._id)
-        const answerSheets = await AnswerSheet.find({ studentREF: student._id });
+        const answerSheets = await AnswerSheet.find({ 
+            studentREF: student._id, 
+            programREF: student.programREF,
+        });
         // console.log(answerSheets)
         if (!answerSheets || answerSheets.length === 0) {
             // return res.status(404).json({ error: 'Answer sheet not found' });
@@ -52,7 +59,6 @@ router.get('/', async (req, res) => {
             // return res.status(404).json({ error: 'Course not found' });
             return res.send([emptyCourse]);
         }
-
         const answerSheetREFs = answerSheets.map(answerSheet => answerSheet._id);
         const marks = await Marks.find({ answerSheetREF: { $in: answerSheetREFs } });
         if (!marks || marks.length === 0) {
@@ -84,9 +90,10 @@ router.get('/', async (req, res) => {
           
             if (course && mark) {
               acc.push({
-                courseName: course.name,
+                courseName: `${course.name} (${course.shortname})`,
                 allocMarks: mark.allocMarks,
-                totalMarks: mark.totalMarks
+                totalMarks: mark.totalMarks,
+                ID: course.courseID,
               });
             }
           
@@ -101,7 +108,7 @@ router.get('/', async (req, res) => {
               return res.send(results);
         }
 
-        console.log(results)
+        // console.log(results)
         res.send(results);
         
 //.toHexString() 

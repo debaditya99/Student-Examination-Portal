@@ -48,7 +48,7 @@ router.get('/semesters', async (req, res) => {
   const { studentREF } = req.query;
   try{
     const student = await Student.findById(studentREF).populate('programREF');
-    console.log(student)
+    // console.log(student)
     const semester = Number(student.programREF.duration) * 2;
      res.send(semester.toString());
 
@@ -58,24 +58,65 @@ router.get('/semesters', async (req, res) => {
   }
 })
 
+const Course = require('../models/courseModel');
+const AnswerSheet = require('../models/answerSheetModel');
+const emptyCourse = { name: "N/A"}
+
+router.get('/answersheet', async (req, res) => {
+    const { studentREF, semester } = req.query;
+
+    try {
+      const student = await Student.findById(studentREF).populate('programREF');
+      // console.log(student)
+      if (!student) {
+        return res.status(404).json({ error: 'Student not found' });
+      }
+      const answerSheets = await AnswerSheet.find({ 
+        programREF: student.programREF,
+        studentREF: student._id,
+      })
+
+    const courseREFs = answerSheets.map(answerSheet => answerSheet.courseREF);
+        const courses = await Course.find({ _id: { $in: courseREFs }, semester });
+
+        const results = answerSheets.reduce((acc, answerSheet) => {
+          const course = courses.find(course => (course._id.equals(answerSheet.courseREF)));
+          if (course && answerSheet.file.data) {
+            acc.push({
+              name: `${course.name} (${course.shortname})`,
+              filename: `Uploaded on ${answerSheet.updatedAt}`,
+              url: `http://localhost:3001/data/download/answersheet/${answerSheet._id}`,
+              file: answerSheet.file,
+            });
+           }
+          return acc;
+        }, []);
+
+    res.json(results);
+    } catch (err) {
+      console.error('Error retrieving Answer Sheets:', err);
+      res.status(500).json({ error: 'Server error' });
+    }
+  })
+
 const Datesheet = require('../models/datesheetModel');
 
 router.get('/datesheet', async (req, res) => {
     const { studentREF, semester } = req.query;
     
     //sending request info to Request Collection
-    axios
-        .get(`http://localhost:3001/data/request`, { 
-        params: { studentREF: studentREF,  reqType: 'datesheet'},
-        })
-        .then((res) => {
-        console.log('GET request successful:', res.data);
-        // Perform any necessary actions upon successful response
-        })
-        .catch((err) => {
-            console.error('Error sending GET request:', err);
-            // Handle any errors that occurred during the request
-        });            
+    // axios
+    //     .get(`http://localhost:3001/data/request`, { 
+    //     params: { studentREF: studentREF,  reqType: 'datesheet'},
+    //     })
+    //     .then((res) => {
+    //     console.log('GET request successful:', res.data);
+    //     // Perform any necessary actions upon successful response
+    //     })
+    //     .catch((err) => {
+    //         console.error('Error sending GET request:', err);
+    //         // Handle any errors that occurred during the request
+    //     });            
 
     try {
         const student = await Student.findById(studentREF).populate('programREF');

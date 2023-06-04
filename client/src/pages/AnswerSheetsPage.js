@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import React from 'react';
-import SubjectForm from './Forms/SubjectForm';
+import AnswerSheetFormAPI from './Forms/AnswerSheetFormAPI';
 
 function AnswerSheetsPage() {
 
@@ -22,7 +22,7 @@ function AnswerSheetsPage() {
             {showAnswerSheets && (
             <div className="animated-card card">
               <h2 className='text-center'> Download Answer Sheet </h2>
-              < SubjectForm />
+              < AnswerSheetFormAPI />
             </div>
           )}
     </div>
