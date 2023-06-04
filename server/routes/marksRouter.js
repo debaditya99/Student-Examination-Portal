@@ -96,10 +96,9 @@ router.get('/', async (req, res) => {
                 ID: course.courseID,
               });
             }
-          
             return acc;
           }, []);
-        
+
         if(results == (0) || results == []){
             const results = courses.map(course => ({
                 courseName: course.name,
@@ -108,7 +107,7 @@ router.get('/', async (req, res) => {
               return res.send(results);
         }
 
-        // console.log(results)
+        console.log(results)
         res.send(results);
         
 //.toHexString() 

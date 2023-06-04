@@ -87,7 +87,7 @@ function DatesheetFormAPI() {
           )}
           { datesheets.length > 0 && (
         <div className="table-responsive mt-3">
-          <table className="table table-bordered">
+          <table className="table table-bordered mt-3">
             <thead>
               <tr>
                 <th className="col-sm-9">Datesheets</th>

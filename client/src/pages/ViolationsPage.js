@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import ViolationAPI from './Forms/ViolationAPI';
 
 function ViolationsPage() {
 
@@ -20,10 +21,7 @@ function ViolationsPage() {
               </div>
             </div>
             {showViolations && (
-            <div className="animated-card card">
-              <h2 className='text-center mb-4'> Unfair Means Violations </h2>
-              <p className='text-center'>DESIGN AND ANALYSIS OF ALGORITHMS<br />22/MAR/2023<br />Carried Smol Chit</p>
-            </div>
+            < ViolationAPI />
           )}
           </div>
     

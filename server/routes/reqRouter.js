@@ -66,6 +66,10 @@ router.get('/answersheet', async (req, res) => {
     const { studentREF, semester } = req.query;
 
     try {
+      const ansReqRes = await axios.get(`http://localhost:3001/data/request`, { 
+            params: { studentREF: studentREF,  reqType: 'answersheet'},
+        })
+        console.log('GET request successful:', ansReqRes);
       const student = await Student.findById(studentREF).populate('programREF');
       // console.log(student)
       if (!student) {
@@ -99,6 +103,44 @@ router.get('/answersheet', async (req, res) => {
     }
   })
 
+const Marksheet = require('../models/marksheetModel');
+
+router.get('/marksheet', async (req, res) => {
+  const { studentREF } = req.query;
+
+  try{
+    const marksheetReqRes = await axios.get(`http://localhost:3001/data/request`, { 
+            params: { studentREF: studentREF,  reqType: 'answersheet'},
+    })
+    console.log('GET request successful:', marksheetReqRes);
+
+    const student = await Student.findById(studentREF).populate('programREF')
+    if (!student) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+
+    const marksheets = await Marksheet.find({
+      studentREF: studentREF,
+    })
+
+    const results = marksheets.reduce((acc, marksheet) => {
+      acc.push({
+        name: `Semester ${marksheet.semester}`,
+        filename: `Uploaded on ${marksheet.updatedAt}`,
+        url: `http://localhost:3001/data/download/marksheet/${marksheet._id}`,
+        file: marksheet.file,
+      })
+      return acc;
+    }, [])
+
+    res.json(results)
+
+  } catch (err) {
+    console.error('Error retrieving Answer Sheets:', err);
+    res.status(500).json({ error: 'Server error' });
+  }
+})
+
 const Datesheet = require('../models/datesheetModel');
 
 router.get('/datesheet', async (req, res) => {
@@ -119,7 +161,11 @@ router.get('/datesheet', async (req, res) => {
     //     });            
 
     try {
-        const student = await Student.findById(studentREF).populate('programREF');
+      const dateReqRes = await axios.get(`http://localhost:3001/data/request`, { 
+            params: { studentREF: studentREF,  reqType: 'datesheet'},
+        })
+        console.log('GET request successful:', dateReqRes);
+        const student = await Student.findById(studentREF)
         // console.log(student)
         if (!student) {
             return res.status(404).json({ error: 'Student not found' });
@@ -141,6 +187,55 @@ router.get('/datesheet', async (req, res) => {
         console.error('Error retrieving datesheets:', err);
         res.status(500).json({ error: 'Server error' });
       }
+})
+
+const Violation = require('../models/violationsModel');
+
+router.get('/violation', async (req, res) => {
+    const { studentREF } = req.query;
+
+    try{
+      const violationReqRes = await axios.get(`http://localhost:3001/data/request`, { 
+            params: { studentREF: studentREF,  reqType: 'violations'},
+      })
+      console.log('GET violations request successful:', violationReqRes);
+
+      const student = await Student.findById(studentREF)
+      if (!student) {
+        return res.status(404).json({ error: 'Student not found' });
+      }
+
+      const answerSheets = await AnswerSheet.find({
+        studentREF: student._id
+      }).populate('courseREF')
+
+      const answerSheetIds = answerSheets.map(answerSheet => answerSheet._id);
+
+      const violations = await Violation.find({
+        answerSheetREF: { $in: answerSheetIds }
+      }).populate('answerSheetREF');
+
+      const result = answerSheets.reduce((acc, answerSheets) => {
+        const violation = violations.find(violation => violation.answerSheetREF.equals(answerSheets._id))
+
+        if(violation){
+          acc.push({
+            description: `${answerSheets.courseREF.shortname} | ${violation.description}`,
+          })
+        }
+
+      return acc
+    }, [])
+
+    res.send(result)
+
+    } catch (err) {
+      console.error('Error retrieving Violations:', err);
+      res.status(500).json({ error: 'Server error' });
+    }
+
+
+
 })
 
 module.exports = router;

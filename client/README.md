@@ -1,4 +1,4 @@
-# Real README To Recreate?Restart Project from Scratch
+# Real README To Recreate? Restart Project from Scratch
 npm init
 
 npm install express mongoose react react-dom concurrently
@@ -43,7 +43,9 @@ npm install multer nodemon cors moment-timezone
 
 ______________________________
 TO RUN env
-npm run dev
+npm run dev OR npm run client, npm start
+
+mongod --dbpath .\client\src\db\
 
 mongod --dbpath .\data\db\
 
@@ -76,6 +78,22 @@ const userSchema = new mongoose.Schema({
 { timestamps: true }); 
 
 module.exports = mongoose.model('User', userSchema);
+
+The available data types in the above Model schema are: 
+ 
+1. mongoose.Schema.Types.ObjectId 
+2. String 
+3. Boolean 
+4. Number 
+5. Date 
+6. Buffer 
+7. mongoose.Schema.Types.Mixed 
+8. mongoose.Schema.Types.Decimal128 
+9. mongoose.Schema.Types.Map 
+10. mongoose.Schema.Types.Array 
+11. mongoose.Schema.Types.Embedded 
+12. mongoose.Schema.Types.ObjectId ref.
+
 
 //router
 const express = require('express');

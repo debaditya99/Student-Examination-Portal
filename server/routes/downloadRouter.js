@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const axios = require('axios');
 
 const Datesheet = require('../models/datesheetModel');
 
@@ -29,6 +28,31 @@ router.get('/datesheet/:id', async (req, res) => {
       res.status(500).json({ error: 'Server error' });
     }
   });
+
+  const Marksheet = require('../models/marksheetModel');
+
+  router.get('/marksheet/:id', async (req, res) => {
+    const { id } = req.params;
+
+    try {
+      const marksheet = await Marksheet.findById(id);
+
+      if(!marksheet) {
+        return res.status(404).json({ error: 'MarkSheet not found' });
+      }
+
+      res.set({
+        'Content-Type': marksheet.file.contentType,
+        'Content-Disposition': `attachment; filename=${marksheet.filename}`,
+      })
+      // Send the file data as the response
+      res.send(marksheet.file.data);
+
+    } catch (err) {
+      console.error('Error retrieving datesheet for download:', err);
+      res.status(500).json({ error: 'Server error' });
+    }
+  })
 
   const AnswerSheet = require('../models/answerSheetModel');
 

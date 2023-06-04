@@ -6,9 +6,14 @@ yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 .pnpm-debug.log*
+
+#adding new
 node_modules
 .env
 package-lock.json
+ngrok.exe
+.gitignore
+.gitattributes
 
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
