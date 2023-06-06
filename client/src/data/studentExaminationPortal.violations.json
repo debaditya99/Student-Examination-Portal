@@ -1,0 +1,19 @@
+[{
+  "_id": {
+    "$oid": "647cd6f745409409ec0032bd"
+  },
+  "description": "Usage of Small Chit in Exam",
+  "answerSheetREF": {
+    "$oid": "6479b378b1707a7619f809dc"
+  },
+  "studentREF": {
+    "$oid": "6478d3cd4f3b4ec73356d94a"
+  },
+  "createdAt": {
+    "$date": "2023-06-04T18:24:55.880Z"
+  },
+  "updatedAt": {
+    "$date": "2023-06-04T18:24:55.880Z"
+  },
+  "__v": 0
+}]

@@ -1,0 +1,255 @@
+[{
+  "_id": {
+    "$oid": "6478d3cd4f3b4ec73356d94d"
+  },
+  "allocMarks": 22,
+  "totalMarks": 25,
+  "answerSheetREF": {
+    "$oid": "6478d3cd4f3b4ec73356d94c"
+  },
+  "createdAt": {
+    "$date": "2023-06-01T17:22:21.719Z"
+  },
+  "updatedAt": {
+    "$date": "2023-06-01T17:22:21.719Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6478da2ac2de73c59a1495e2"
+  },
+  "allocMarks": 20,
+  "totalMarks": 25,
+  "answerSheetREF": {
+    "$oid": "6478da2ac2de73c59a1495e1"
+  },
+  "createdAt": {
+    "$date": "2023-06-01T17:49:30.981Z"
+  },
+  "updatedAt": {
+    "$date": "2023-06-01T17:49:30.981Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6478dc460fcf183ba2347142"
+  },
+  "allocMarks": 23,
+  "totalMarks": 25,
+  "answerSheetREF": {
+    "$oid": "6478dc460fcf183ba2347141"
+  },
+  "createdAt": {
+    "$date": "2023-06-01T17:58:30.864Z"
+  },
+  "updatedAt": {
+    "$date": "2023-06-01T17:58:30.864Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6478dcda13f1ae46fd3b0eca"
+  },
+  "allocMarks": 24,
+  "totalMarks": 25,
+  "answerSheetREF": {
+    "$oid": "6478dcda13f1ae46fd3b0ec9"
+  },
+  "createdAt": {
+    "$date": "2023-06-01T18:00:58.862Z"
+  },
+  "updatedAt": {
+    "$date": "2023-06-01T18:00:58.862Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6478dd9e354dac341ba5277e"
+  },
+  "allocMarks": 21,
+  "totalMarks": 25,
+  "answerSheetREF": {
+    "$oid": "6478dd9e354dac341ba5277d"
+  },
+  "createdAt": {
+    "$date": "2023-06-01T18:04:14.929Z"
+  },
+  "updatedAt": {
+    "$date": "2023-06-01T18:04:14.929Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6478ec9106073ea918c82e82"
+  },
+  "allocMarks": 17,
+  "totalMarks": 25,
+  "answerSheetREF": {
+    "$oid": "6478ec9106073ea918c82e81"
+  },
+  "createdAt": {
+    "$date": "2023-06-01T19:08:01.358Z"
+  },
+  "updatedAt": {
+    "$date": "2023-06-01T19:08:01.358Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6479af192850fd7f97080852"
+  },
+  "allocMarks": 37,
+  "totalMarks": 40,
+  "answerSheetREF": {
+    "$oid": "6479af192850fd7f97080851"
+  },
+  "createdAt": {
+    "$date": "2023-06-02T08:58:01.771Z"
+  },
+  "updatedAt": {
+    "$date": "2023-06-02T08:58:01.771Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6479afc5519e0b87362a07d4"
+  },
+  "allocMarks": 34,
+  "totalMarks": 40,
+  "answerSheetREF": {
+    "$oid": "6479afc5519e0b87362a07d3"
+  },
+  "createdAt": {
+    "$date": "2023-06-02T09:00:53.257Z"
+  },
+  "updatedAt": {
+    "$date": "2023-06-02T09:00:53.257Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6479b04b10ed18890486861c"
+  },
+  "allocMarks": 38,
+  "totalMarks": 40,
+  "answerSheetREF": {
+    "$oid": "6479b04b10ed18890486861b"
+  },
+  "createdAt": {
+    "$date": "2023-06-02T09:03:07.850Z"
+  },
+  "updatedAt": {
+    "$date": "2023-06-02T09:03:07.850Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6479b082ad189cab5b28365f"
+  },
+  "allocMarks": 38,
+  "totalMarks": 40,
+  "answerSheetREF": {
+    "$oid": "6479b082ad189cab5b28365e"
+  },
+  "createdAt": {
+    "$date": "2023-06-02T09:04:02.379Z"
+  },
+  "updatedAt": {
+    "$date": "2023-06-02T09:04:02.379Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6479b09f942dec58943a8c19"
+  },
+  "allocMarks": 39,
+  "totalMarks": 40,
+  "answerSheetREF": {
+    "$oid": "6479b09f942dec58943a8c18"
+  },
+  "createdAt": {
+    "$date": "2023-06-02T09:04:31.663Z"
+  },
+  "updatedAt": {
+    "$date": "2023-06-02T09:04:31.663Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6479b10e95eab18e64779b6c"
+  },
+  "allocMarks": 22,
+  "totalMarks": 25,
+  "answerSheetREF": {
+    "$oid": "6479b10e95eab18e64779b6b"
+  },
+  "createdAt": {
+    "$date": "2023-06-02T09:06:22.912Z"
+  },
+  "updatedAt": {
+    "$date": "2023-06-02T09:06:22.912Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6479b12a129101d5c3d3c453"
+  },
+  "allocMarks": 22,
+  "totalMarks": 25,
+  "answerSheetREF": {
+    "$oid": "6479b12a129101d5c3d3c452"
+  },
+  "createdAt": {
+    "$date": "2023-06-02T09:06:50.451Z"
+  },
+  "updatedAt": {
+    "$date": "2023-06-02T09:06:50.451Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6479b188f0131191caea2d2a"
+  },
+  "allocMarks": 22,
+  "totalMarks": 25,
+  "answerSheetREF": {
+    "$oid": "6479b188f0131191caea2d29"
+  },
+  "createdAt": {
+    "$date": "2023-06-02T09:08:24.611Z"
+  },
+  "updatedAt": {
+    "$date": "2023-06-02T09:08:24.611Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6479b1c83b068449b92f2ac0"
+  },
+  "allocMarks": 24,
+  "totalMarks": 25,
+  "answerSheetREF": {
+    "$oid": "6479b1c83b068449b92f2abf"
+  },
+  "createdAt": {
+    "$date": "2023-06-02T09:09:28.223Z"
+  },
+  "updatedAt": {
+    "$date": "2023-06-02T09:09:28.223Z"
+  },
+  "__v": 0
+}]

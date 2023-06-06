@@ -53,7 +53,7 @@ function MarksheetFormAPI() {
                   <tr key={index}>
                     <td>
                       <a href={marksheets.url} download>
-                        {marksheets.filename}
+                        {marksheets.name}
                       </a>
                     </td>
                   </tr>

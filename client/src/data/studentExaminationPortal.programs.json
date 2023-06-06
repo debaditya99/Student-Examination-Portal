@@ -1,0 +1,32 @@
+[{
+  "_id": {
+    "$oid": "647b30de532cc75f8e224a50"
+  },
+  "programID": "020",
+  "name": "Bachelors of Computer Applications",
+  "shortname": "BCA",
+  "duration": 3,
+  "createdAt": {
+    "$date": "2023-06-03T12:23:58.385Z"
+  },
+  "updatedAt": {
+    "$date": "2023-06-03T12:23:58.385Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "647b3118b1b6e7f003a7f453"
+  },
+  "programID": "044",
+  "name": "Masters of Computer Applications",
+  "shortname": "MCA",
+  "duration": 2,
+  "createdAt": {
+    "$date": "2023-06-03T12:24:56.092Z"
+  },
+  "updatedAt": {
+    "$date": "2023-06-03T12:24:56.092Z"
+  },
+  "__v": 0
+}]

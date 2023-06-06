@@ -18,15 +18,15 @@ const Request = require('../models/requestModel');
 
 //POST request to add data to DB
 router.post('/', (req, res) => {
-    // const studentREF = req.body.studentREF;
-    // const name = req.body.name;
+    const studentREF = req.body.studentREF;
+    const name = req.body.name;
 
-    // const program = new Program({
-    //     programID: "044",
-    //     name: "Masters of Computer Applications",
-    //     shortname: 'MCA',
-    //     duration: '2',
-    // })
+    const program = new Program({
+        programID: "044",
+        name: "Masters of Computer Applications",
+        shortname: 'MCA',
+        duration: '2',
+    })
 
     const student = new Student({
         // studentID: '01035304421',

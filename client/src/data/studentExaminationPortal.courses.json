@@ -1,0 +1,323 @@
+[{
+  "_id": {
+    "$oid": "6478d3cd4f3b4ec73356d94b"
+  },
+  "courseID": "101",
+  "name": "Discrete Structures",
+  "shortname": "DS",
+  "semester": 1,
+  "programREF": {
+    "$oid": "647b3118b1b6e7f003a7f453"
+  },
+  "createdAt": {
+    "$date": "2023-06-01T17:50:21.718Z"
+  },
+  "updatedAt": {
+    "$date": "2023-06-01T17:50:21.718Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6478da2ac2de73c59a1495e0"
+  },
+  "courseID": "103",
+  "name": "Computer Networks",
+  "shortname": "CN",
+  "semester": 1,
+  "programREF": {
+    "$oid": "647b3118b1b6e7f003a7f453"
+  },
+  "createdAt": {
+    "$date": "2023-06-01T17:49:30.981Z"
+  },
+  "updatedAt": {
+    "$date": "2023-06-01T17:49:30.981Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6478dc460fcf183ba2347140"
+  },
+  "courseID": "105",
+  "name": "Operating Systems with Linux",
+  "shortname": "OS",
+  "semester": 1,
+  "programREF": {
+    "$oid": "647b3118b1b6e7f003a7f453"
+  },
+  "createdAt": {
+    "$date": "2023-06-01T17:58:30.864Z"
+  },
+  "updatedAt": {
+    "$date": "2023-06-01T17:58:30.864Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6478dcda13f1ae46fd3b0ec8"
+  },
+  "courseID": "107",
+  "name": "Database Management Systems",
+  "shortname": "DBMS",
+  "semester": 1,
+  "programREF": {
+    "$oid": "647b3118b1b6e7f003a7f453"
+  },
+  "createdAt": {
+    "$date": "2023-06-01T18:00:58.861Z"
+  },
+  "updatedAt": {
+    "$date": "2023-06-01T18:00:58.861Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6478dd9e354dac341ba5277c"
+  },
+  "courseID": "109",
+  "name": "Object Oriented Programming and JAVA",
+  "shortname": "Java",
+  "semester": 1,
+  "programREF": {
+    "$oid": "647b3118b1b6e7f003a7f453"
+  },
+  "createdAt": {
+    "$date": "2023-06-01T18:04:14.929Z"
+  },
+  "updatedAt": {
+    "$date": "2023-06-01T18:04:14.929Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6478ec9106073ea918c82e80"
+  },
+  "courseID": "102",
+  "name": "Data and File Structures",
+  "shortname": "DFS",
+  "semester": 2,
+  "programREF": {
+    "$oid": "647b3118b1b6e7f003a7f453"
+  },
+  "createdAt": {
+    "$date": "2023-06-01T19:08:01.355Z"
+  },
+  "updatedAt": {
+    "$date": "2023-06-01T19:08:01.355Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6479af192850fd7f97080850"
+  },
+  "courseID": "161",
+  "name": "Computer Networks Lab",
+  "shortname": "CNLab",
+  "semester": 1,
+  "programREF": {
+    "$oid": "647b3118b1b6e7f003a7f453"
+  },
+  "createdAt": {
+    "$date": "2023-06-02T08:58:01.771Z"
+  },
+  "updatedAt": {
+    "$date": "2023-06-02T08:58:01.771Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6479afc5519e0b87362a07d2"
+  },
+  "courseID": "163",
+  "name": "Operating Systems with Linux Lab",
+  "shortname": "OSLab",
+  "semester": 1,
+  "programREF": {
+    "$oid": "647b3118b1b6e7f003a7f453"
+  },
+  "createdAt": {
+    "$date": "2023-06-02T09:00:53.256Z"
+  },
+  "updatedAt": {
+    "$date": "2023-06-02T09:00:53.256Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6479b04b10ed18890486861a"
+  },
+  "courseID": "165",
+  "name": "Database Management Systems Lab",
+  "shortname": "DBMSLab",
+  "semester": 1,
+  "programREF": {
+    "$oid": "647b3118b1b6e7f003a7f453"
+  },
+  "createdAt": {
+    "$date": "2023-06-02T09:03:07.850Z"
+  },
+  "updatedAt": {
+    "$date": "2023-06-02T09:03:07.850Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6479b082ad189cab5b28365d"
+  },
+  "courseID": "167",
+  "name": "Object Oriented Programming and JAVA Lab",
+  "shortname": "JavaLab",
+  "semester": 1,
+  "programREF": {
+    "$oid": "647b3118b1b6e7f003a7f453"
+  },
+  "createdAt": {
+    "$date": "2023-06-02T09:04:02.379Z"
+  },
+  "updatedAt": {
+    "$date": "2023-06-02T09:04:02.379Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6479b09f942dec58943a8c17"
+  },
+  "courseID": "169",
+  "name": "Minor Project - I",
+  "shortname": "MPI",
+  "semester": 1,
+  "programREF": {
+    "$oid": "647b3118b1b6e7f003a7f453"
+  },
+  "createdAt": {
+    "$date": "2023-06-02T09:04:31.663Z"
+  },
+  "updatedAt": {
+    "$date": "2023-06-02T09:04:31.663Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6479b10e95eab18e64779b6a"
+  },
+  "courseID": "104",
+  "name": "Object Oriented Software Engineering",
+  "shortname": "OOSE",
+  "semester": 2,
+  "programREF": {
+    "$oid": "647b3118b1b6e7f003a7f453"
+  },
+  "createdAt": {
+    "$date": "2023-06-02T09:06:22.912Z"
+  },
+  "updatedAt": {
+    "$date": "2023-06-02T09:06:22.912Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6479b12a129101d5c3d3c451"
+  },
+  "courseID": "106",
+  "name": "Python Programming",
+  "shortname": "PP",
+  "semester": 2,
+  "programREF": {
+    "$oid": "647b3118b1b6e7f003a7f453"
+  },
+  "createdAt": {
+    "$date": "2023-06-02T09:06:50.450Z"
+  },
+  "updatedAt": {
+    "$date": "2023-06-02T09:06:50.450Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6479b188f0131191caea2d28"
+  },
+  "courseID": "114",
+  "name": "Full Stack Development",
+  "shortname": "FSD",
+  "semester": 2,
+  "programREF": {
+    "$oid": "647b3118b1b6e7f003a7f453"
+  },
+  "createdAt": {
+    "$date": "2023-06-02T09:08:24.610Z"
+  },
+  "updatedAt": {
+    "$date": "2023-06-02T09:08:24.610Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6479b1c83b068449b92f2abe"
+  },
+  "courseID": "128",
+  "name": "Digital Marketing",
+  "shortname": "DigM",
+  "semester": 2,
+  "programREF": {
+    "$oid": "647b3118b1b6e7f003a7f453"
+  },
+  "createdAt": {
+    "$date": "2023-06-02T09:09:28.223Z"
+  },
+  "updatedAt": {
+    "$date": "2023-06-02T09:09:28.223Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6479b378b1707a7619f809db"
+  },
+  "courseID": "201",
+  "name": "Design and Analysis of Algorithms",
+  "shortname": "DAA",
+  "semester": 3,
+  "programREF": {
+    "$oid": "647b3118b1b6e7f003a7f453"
+  },
+  "createdAt": {
+    "$date": "2023-06-02T09:16:40.564Z"
+  },
+  "updatedAt": {
+    "$date": "2023-06-02T09:16:40.564Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6479b77584634bd6d81d67a4"
+  },
+  "courseID": "203",
+  "name": "Artificial Intelligence and Machine Learning",
+  "shortname": "AIML",
+  "semester": 3,
+  "programREF": {
+    "$oid": "647b3118b1b6e7f003a7f453"
+  },
+  "createdAt": {
+    "$date": "2023-06-02T09:33:41.882Z"
+  },
+  "updatedAt": {
+    "$date": "2023-06-02T09:33:41.882Z"
+  },
+  "__v": 0
+}]

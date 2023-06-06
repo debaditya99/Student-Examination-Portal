@@ -1,0 +1,51 @@
+[{
+  "_id": {
+    "$oid": "6478d3cd4f3b4ec73356d94a"
+  },
+  "studentID": "01035304421",
+  "name": "Debaditya Mandal",
+  "programREF": {
+    "$oid": "647b3118b1b6e7f003a7f453"
+  },
+  "createdAt": {
+    "$date": "2023-06-01T17:22:21.717Z"
+  },
+  "updatedAt": {
+    "$date": "2023-06-01T17:22:21.717Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6478da2ac2de73c59a1495df"
+  },
+  "studentID": "01235304421",
+  "name": "Sahil Jha",
+  "programREF": {
+    "$oid": "647b3118b1b6e7f003a7f453"
+  },
+  "createdAt": {
+    "$date": "2023-06-01T17:49:30.980Z"
+  },
+  "updatedAt": {
+    "$date": "2023-06-01T17:49:30.980Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "647ca7feafa050987e5cc320"
+  },
+  "studentID": "03135304421",
+  "name": "Srishti Jain",
+  "programREF": {
+    "$oid": "6478d3cd4f3b4ec73356d949"
+  },
+  "createdAt": {
+    "$date": "2023-06-04T15:04:30.315Z"
+  },
+  "updatedAt": {
+    "$date": "2023-06-04T15:04:30.315Z"
+  },
+  "__v": 0
+}]

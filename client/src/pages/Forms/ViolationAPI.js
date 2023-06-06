@@ -26,9 +26,9 @@ function ViolationAPI() {
     return (
       <>
               <div className="animated-card card">
-                <h2 className='text-center'> Unfair Means Violations </h2>
+                <h2 className='text-center mb-0'> Unfair Means Violations </h2>
                 <div className="container text-center ">
-        <div className="form-group mt-2 row">
+        <div className="form-group mt-0 row mb-0">
   
             <div className="col-sm-9">
             </div>
@@ -42,7 +42,7 @@ function ViolationAPI() {
             )}
             { violations.length > 0 && (
           <div className="table-responsive mt-3">
-            <table className="table table-bordered">
+            <table className="table table-bordered mb-0">
               <thead>
                 <tr>
                   <th className="col-sm-9">Violations</th>
