@@ -12,20 +12,9 @@ import ColorToggleButton from './ColorToggleButton';
 
 function Dashboard() {
 
-  const [isBlackBg, setIsBlackBg] = useState(true);
-
-  const toggleBackgroundColor = () => {
-    setIsBlackBg((prevIsBlackBg) => !prevIsBlackBg);
-  };
-
-  const buttonStyle = {
-    backgroundColor: isBlackBg ? 'black' : 'white',
-    color: isBlackBg ? 'white' : 'black'
-  };
-
   return (
     <>
-    <div id="targetElement" className={isBlackBg ? 'white-bg' : 'black-bg'}>
+ 
       <div className="container">
         <div className="row">
           < MarksPage />
@@ -41,11 +30,7 @@ function Dashboard() {
         </div>
       </div>
 
-      <button id="toggleButton" style={buttonStyle} onClick={toggleBackgroundColor}>
-        {isBlackBg ? 'Switch to Black' : 'Switch to White'}
-      </button>
       
-      </div>
 
       {/* {showMarks && (
               <div className="animated-card card">

@@ -13,7 +13,7 @@ function AnswerSheetsPage() {
     <>
     <div className="col-md-6 mb-4">
             <div className="card">
-              <div className="card-body  text-center ">
+              <div className="card-body text-center ">
                 <h5 className="card-title">Answer Sheets</h5>
                 <p className="card-text">Request to check your answer sheets.</p>
                 <button className="btn btn-primary" onClick={handleCheckAnswerSheets}>Check Answer Sheets</button>
