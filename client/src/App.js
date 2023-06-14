@@ -46,10 +46,15 @@ function App() {
     color: isBlackBg ? 'white' : 'black'
   };
 
+  const handleRefresh = () => {
+    window.location.reload();
+  };
+
   return (
     <>
        <div className={isBlackBg ? 'white-bg' : 'black-bg dark-mode'}>
       <NavbarTop />
+
       {showLoginPage ? (
         <>
           <LoginPage style={textStyle} onButtonClick={handleChildButtonClick} />
@@ -57,6 +62,9 @@ function App() {
       ) : (
         <>
           <Welcome style={textStyle}/>
+          <div className="text-center">
+            <button class="btn btn-warning btn-block m-2" onClick={handleRefresh}>LOGOUT</button>
+          </div>
           <Dashboard />
           <div className="text-center">
             <button id="toggleButton" class="btn btn-primary btn-block m-5" style={textStyle} onClick={toggleBackgroundColor}>
