@@ -11,7 +11,7 @@ function NavbarTop() {
         </div> */}
         <div className=" d-flex justify-content-center align-items-center">
           <img src={logo} alt="Logo" className="logo" />
-          <h1 className="text-center heading ms-3">Student Examination Portal</h1>
+          <h1 className="text-center heading ms-3">University Examination Planning And Implementation (EPI) System</h1>
         </div>
         {/* <div className="d-flex justify-content-center align-items-center position-relative">
           <img src={logo} alt="Logo" className="logo" />
