@@ -24,17 +24,10 @@ function App() {
     }, 777+777); // Delay of 0.777 seconds (777 milliseconds)
   };
 
-  const handleParentButtonClick = () => {
-    // Perform parent button functionality here
-    handleToggleView();
-    console.log('Parent button clicked');
-    
-  };
-
   const handleChildButtonClick = () => {
     // Perform child button functionality here
     console.log('Child button clicked');
-    handleParentButtonClick();
+    handleToggleView();
   };
 
   const [isBlackBg, setIsBlackBg] = useState(true);
